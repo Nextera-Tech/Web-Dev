@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Estoque</title>
+    <link rel="stylesheet" href="../Css/segundaParte.css">
+</head>
+<body>
+    <main>
+        <div class="bloco">
+            <h2>Mix Controle</h2>
+            <ul>
+                <li><button onclick="showForm('addItem')">Adicionar itens</button></li>
+                <li><button onclick="showForm('removeItem')">Remover</button></li>
+                <li><button onclick="showForm('editItem')">Editar</button></li>
+            </ul>
+
+            <ul id="sair">
+                <li id="botaoDeSaida">SAIR</li>
+            </ul>
+        </div>
+    </main>
+
+    <div id="modalOverlay"></div>
+
+    <div class="container">
+        <!-- Formulários -->
+        <div id="addItem" class="form-container">
+            <button class="close-btn" onclick="closeForm()">X</button>
+            <h2>Adicionar Item</h2>
+            <form action="../php/add_item.php" method="POST">
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" required>
+                <label for="quality">Qualidade:</label>
+                <input type="text" id="quality" name="quality" required>
+                <label for="price">Preço:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+                <label for="sale_price">Preço de Venda:</label>
+                <input type="number" id="sale_price" name="sale_price" step="0.01" required>
+                <input type="submit" value="Adicionar Item">
+            </form>
+        </div>
+
+        <div id="removeItem" class="form-container">
+            <button class="close-btn" onclick="closeForm()">X</button>
+            <h2>Remover Item</h2>
+            <form action="../php/remove_item.php" method="POST">
+                <label for="remove_id">ID do Item:</label>
+                <input type="number" id="remove_id" name="id" required>
+                <input type="submit" value="Remover Item">
+            </form>
+        </div>
+
+        <div id="editItem" class="form-container">
+            <button class="close-btn" onclick="closeForm()">X</button>
+            <h2>Editar Item</h2>
+            <form action="../php/edit_item.php" method="POST">
+                <label for="edit_id">ID do Item:</label>
+                <input type="number" id="edit_id" name="id" required>
+                <label for="edit_description">Nova Descrição:</label>
+                <input type="text" id="edit_description" name="description">
+                <label for="edit_quality">Nova Qualidade:</label>
+                <input type="text" id="edit_quality" name="quality">
+                <label for="edit_price">Novo Preço:</label>
+                <input type="number" id="edit_price" name="price" step="0.01">
+                <label for="edit_sale_price">Novo Preço de Venda:</label>
+                <input type="number" id="edit_sale_price" name="sale_price" step="0.01">
+                <input type="submit" value="Atualizar Item">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('botaoDeSaida').addEventListener('click', function() {
+            // Redireciona para o script de logout
+            window.location.href = '../php/logout.php';
+        });
+
+        function showForm(formId) {
+            // Esconde todos os formulários
+            var forms = document.querySelectorAll('.form-container');
+            var overlay = document.getElementById('modalOverlay');
+            forms.forEach(function(form) {
+                form.classList.remove('active');
+            });
+
+            // Exibe o formulário selecionado
+            var activeForm = document.getElementById(formId);
+            if (activeForm) {
+                activeForm.classList.add('active');
+            }
+
+            // Exibe a sobreposição
+            overlay.classList.add('active');
+        }
+
+        function closeForm() {
+            var forms = document.querySelectorAll('.form-container');
+            var overlay = document.getElementById('modalOverlay');
+            forms.forEach(function(form) {
+                form.classList.remove('active');
+            });
+            overlay.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

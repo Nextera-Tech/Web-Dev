@@ -1,0 +1,93 @@
+@media screen and (max-width: 1920px) and (max-height: 1080px){
+        .irLogin > h1 {
+            margin: 60px 100px 0px 100px;
+        }
+        .iconLogin{
+            position: absolute;
+            left: 51.50%;
+            top: 45%;
+            transform: translateY(-50%);
+        }
+        .iconEmail{
+            position: absolute;
+            left: 51.10%;
+            top: 53%;
+            transform: translateY(-50%);
+        }
+        .iconSenha{
+            position: absolute;
+            left: 51.50%;
+            top: 60.50%;
+            transform: translateY(-50%);
+        }
+    }
+    @media screen and (max-width: 1440px) and (max-height: 900px){
+        .irLogin > h1 {
+            margin: 40px 50px 50px 50px;
+        }
+        .iconLogin{
+            position: absolute;
+            left: 47.50%;
+            top: 44.50%;
+            transform: translateY(-50%);
+        }
+        .iconEmail{
+            position: absolute;
+            left: 47.10%;
+            top: 53%;
+            transform: translateY(-50%);
+        }
+        .iconSenha{
+            position: absolute;
+            left: 47.50%;
+            top: 61.50%;
+            transform: translateY(-50%);
+        }
+    }
+    @media screen and (max-width: 800px) and (max-height: 480px){
+        .irLogin > h1 {
+            margin: 0px 5px 10px 15px;
+            font-size: 19pt;
+        }
+        .irLogin > a {
+            color: white;
+            font-size: 13pt;
+            font-weight: 800;
+            border: 3px solid white;
+            height: 50px;
+            width: 150px;    
+        }
+        form {
+            margin: 0px;
+            width: 300px;
+        }
+        form > input {
+            height: 50px;
+            width: 100%;
+            margin-bottom: 21px;
+        }
+        form > button {
+            margin: auto;
+            padding: 8px;
+            width: 250px;
+            font-size: 18px;
+        }
+        .iconLogin{
+            position: absolute;
+            left: 47%;
+            top: 44%;
+            transform: translateY(-50%);
+        }
+        .iconEmail{
+            position: absolute;
+            left: 46.40%;
+            top: 59%;
+            transform: translateY(-50%);
+        }
+        .iconSenha{
+            position: absolute;
+            left: 47%;
+            top: 73.50%;
+            transform: translateY(-50%);
+        }
+    }

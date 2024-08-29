@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/segundaParte.css">
+    <title>MixControle</title>
+</head>
+
+<body>
+    <main>
+        <div class="bloco">
+            <h2>Mix Controle</h2>
+            <ul>
+                <li>Adicionar itens</li>
+                <li>Remover</li>
+                <li>Editar</li>
+            </ul>
+
+            <ul id="sair">
+                <li id="botaoDeSaida">SAIR</li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        document.getElementById('botaoDeSaida').addEventListener('click', function() {
+            // Redireciona para o script de logout
+            window.location.href = '../php/logout.php';
+        });
+    </script>
+</body>
+
+</html>
