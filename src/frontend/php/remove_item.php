@@ -5,18 +5,23 @@ session_start();
 
 
 // Obtém o ID do item a ser removido
-$id = $_POST['id'];
+$name = $_POST['name'];
 
 // Prepara a instrução SQL
-$sql = "DELETE FROM itens WHERE id = ?";
+$sql = "DELETE FROM itens WHERE name = ?";
 
 // Prepara a consulta
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id); // 'i' para integer
+$stmt->bind_param("s", $name); // 'i' para integer
 
 // Executa a consulta
 if ($stmt->execute()) {
-    echo "Item removido com sucesso!";
+    echo "<script>
+                alert('Item removido com sucesso!');
+                setTimeout(function() {
+                    window.location.href = '../pages/TelaLogada.html';
+                }, 50);
+            </script>";
 } else {
     echo "Erro ao remover item: " . $stmt->error;
 }
