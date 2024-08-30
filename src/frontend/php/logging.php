@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             // Redirecionamento para a página inicial
-            header('Location: ../Html/segundaParte2.html');
+            header('Location: ../pages/segundaParte2.html');
             exit;
         }  else {
             echo "<script>
                 alert('Senha incorreta.');
                 setTimeout(function() {
-                    window.location.href = '../login.html';
+                    window.location.href = '../public/index.html';
                 }, 50);
             </script>";
         }
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<script>
         alert('Conta não registrada');
         setTimeout(function() {
-            window.location.href = '../login.html';
+            window.location.href = '../public/index.html';
         }, 50);
     </script>";
     }    
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn->close();
 } else {
     // Caso não o metodo não seja POST, então retorna para a página inicial em logoff
-    header('Location: ../login.html');
+    header('Location: ../public/index.html');
     exit;
 }
 

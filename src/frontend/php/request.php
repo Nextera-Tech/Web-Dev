@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $stmt->bind_param("sss", $name, $email, $hashed_password);
     if ($stmt->execute()) {
-        header('Location:../login.html ');
+        header('Location:../public/login.html ');
         exit;
     } else {
         echo "Erro ao cadastrar o usuário: " . $stmt->error;
@@ -37,6 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
     $conn->close();
 } else {
-    header('Location:../login.html');
+    header('Location:../public/login.html');
     exit;
 }
