@@ -11,6 +11,6 @@ session_destroy();
 error_log("Sessão destruída");
 
 // Redirecionar para a página de login
-header('Location: ../login.html');
+header('Location: ../public/index.html');
 exit;
 ?>

@@ -1,6 +1,6 @@
 <?php
 //ARQUIVO DE CONEXÃO COM O BANCO DE DADOS.
-include_once "../php/database.php";
+include_once "database.php";
 
 try{
 //PEGANDO OS INPUTS DO FORMULARIO.
