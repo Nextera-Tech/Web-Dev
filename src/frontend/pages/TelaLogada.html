@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Estoque</title>
-    <link rel="stylesheet" href="../syles/segundaParte.css">
+    <link rel="stylesheet" href="../styles/telaLogada.css">
+    <script src="../script/telaLogada.js"> </script>
 </head>
 <body>
     <main>
         <div class="bloco">
             <h2>Mix Controle</h2>
             <ul>
-                <li><button onclick="showForm('addItem')">Adicionar itens</button></li>
-                <li><button onclick="showForm('removeItem')">Remover</button></li>
-                <li><button onclick="showForm('editItem')">Editar</button></li>
+                <li onclick="showForm('addItem')"><a>Adicionar itens</a></li>
+                <li onclick="showForm('removeItem')"><a>Remover</a></li>
+                <li onclick="showForm('editItem')"><a>Editar</a></li>
             </ul>
 
             <ul id="sair">
                 <li id="botaoDeSaida">SAIR</li>
             </ul>
+        </div>
+        <div class="estoque">
+
         </div>
     </main>
 
@@ -70,39 +74,5 @@
             </form>
         </div>
     </div>
-
-    <script>
-        document.getElementById('botaoDeSaida').addEventListener('click', function() {
-            // Redireciona para o script de logout
-            window.location.href = '../php/logout.php';
-        });
-
-        function showForm(formId) {
-            // Esconde todos os formulários
-            var forms = document.querySelectorAll('.form-container');
-            var overlay = document.getElementById('modalOverlay');
-            forms.forEach(function(form) {
-                form.classList.remove('active');
-            });
-
-            // Exibe o formulário selecionado
-            var activeForm = document.getElementById(formId);
-            if (activeForm) {
-                activeForm.classList.add('active');
-            }
-
-            // Exibe a sobreposição
-            overlay.classList.add('active');
-        }
-
-        function closeForm() {
-            var forms = document.querySelectorAll('.form-container');
-            var overlay = document.getElementById('modalOverlay');
-            forms.forEach(function(form) {
-                form.classList.remove('active');
-            });
-            overlay.classList.remove('active');
-        }
-    </script>
 </body>
 </html>

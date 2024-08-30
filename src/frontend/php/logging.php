@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             // Redirecionamento para a página inicial
-            header('Location: ../pages/segundaParte2.html');
+            header('Location: ../pages/telaLogada.html');
             exit;
         }  else {
             echo "<script>
