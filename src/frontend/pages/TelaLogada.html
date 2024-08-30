@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Estoque</title>
-    <link rel="stylesheet" href="../syles/segundaParte.css">
+    <link rel="stylesheet" href="../styles/telaLogada.css">
+    <script src="../script/telaLogada.js"> </script>
 </head>
 <body>
     <main>
         <div class="bloco">
             <h2>Mix Controle</h2>
             <ul>
-                <li><button onclick="showForm('addItem')">Adicionar itens</button></li>
-                <li><button onclick="showForm('removeItem')">Remover</button></li>
-                <li><button onclick="showForm('editItem')">Editar</button></li>
+                <img id="IconBotaoAdd" src="../assets/addItens.png" alt="Icon do botão de adicionar itens">
+                <li id="botaoAddItens" onclick="showForm('addItem')"><a>Adicionar itens</a></li>
+
+                <img id="iconRvItens" src="../assets/RvItens.png" alt=" icon do botão para remover itens do estoque">
+                <li id="botaoRvItens" onclick="showForm('removeItem')"><a>Remover</a></li>
+
+                <img id="iconEdItens" src="../assets/editItens.png" alt=" icon do botão editar itens do estoque">
+                <li id="botaoEdItens" onclick="showForm('editItem')"><a>Editar</a></li>
             </ul>
 
             <ul id="sair">
-                <li id="botaoDeSaida">SAIR</li>
+
+                <img id="iconSair" src="../assets/botaoDeSair.png" alt="icon do botão de sair de sair da tela to logado">
+                <li id="botaoDeSaida"><a>SAIR</a></li>
+
             </ul>
+        </div>
+        <div class="estoque">
+            
         </div>
     </main>
 
@@ -30,14 +42,21 @@
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Adicionar Item</h2>
             <form action="../php/add_item.php" method="POST">
+                <label for="name">Nome:</label>
+                <input type="number" id="name" name="name" required>
+
                 <label for="description">Descrição:</label>
-                <input type="text" id="description" name="description" required>
-                <label for="quality">Qualidade:</label>
-                <input type="text" id="quality" name="quality" required>
+                <input type="text" id="description" name="description">
+
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
                 <label for="price">Preço:</label>
                 <input type="number" id="price" name="price" step="0.01" required>
+
                 <label for="sale_price">Preço de Venda:</label>
                 <input type="number" id="sale_price" name="sale_price" step="0.01" required>
+
                 <input type="submit" value="Adicionar Item">
             </form>
         </div>
@@ -46,8 +65,8 @@
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Remover Item</h2>
             <form action="../php/remove_item.php" method="POST">
-                <label for="remove_id">ID do Item:</label>
-                <input type="number" id="remove_id" name="id" required>
+                <label for="name">Nome: </label>
+                <input type="text" id="name" name="name" required>
                 <input type="submit" value="Remover Item">
             </form>
         </div>
@@ -58,6 +77,7 @@
             <form action="../php/edit_item.php" method="POST">
                 <label for="edit_id">ID do Item:</label>
                 <input type="number" id="edit_id" name="id" required>
+
                 <label for="edit_description">Nova Descrição:</label>
                 <input type="text" id="edit_description" name="description">
                 <label for="edit_quality">Nova Qualidade:</label>
@@ -70,39 +90,5 @@
             </form>
         </div>
     </div>
-
-    <script>
-        document.getElementById('botaoDeSaida').addEventListener('click', function() {
-            // Redireciona para o script de logout
-            window.location.href = '../php/logout.php';
-        });
-
-        function showForm(formId) {
-            // Esconde todos os formulários
-            var forms = document.querySelectorAll('.form-container');
-            var overlay = document.getElementById('modalOverlay');
-            forms.forEach(function(form) {
-                form.classList.remove('active');
-            });
-
-            // Exibe o formulário selecionado
-            var activeForm = document.getElementById(formId);
-            if (activeForm) {
-                activeForm.classList.add('active');
-            }
-
-            // Exibe a sobreposição
-            overlay.classList.add('active');
-        }
-
-        function closeForm() {
-            var forms = document.querySelectorAll('.form-container');
-            var overlay = document.getElementById('modalOverlay');
-            forms.forEach(function(form) {
-                form.classList.remove('active');
-            });
-            overlay.classList.remove('active');
-        }
-    </script>
 </body>
 </html>

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    background-color: #CDCDCD;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: grid;
+    height: 90%;
+    width: 90%;
+    grid-template-columns: 27% 77%;
+    grid-template-areas: "bloco estoque";
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 2px 2px 20px black;
+
+}
+
+.bloco {
+    grid-area: bloco;
+    height: 100%;
+    background-color: #008575;
+    border: 1px solid black;
+    left: 10px;
+    border-radius: 15px 0px 0px 15px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.425);
+}
+
+.bloco > h2{
+    font-size: 25px;
+    left: 90px;
+    color: white ;
+    top: 18px;
+    font-family: "Goldman", sans-serif; 
+    position: relative;
+}
+
+.bloco > ul {
+    margin-top: 130px;
+    list-style: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.bloco > ul > li {
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 3px;
+    position: relative;
+    right: 39px;
+    cursor: pointer;
+    border-radius: 0px 50px 50px 0px;
+    border: 3px solid white;
+    border-left: 0px;
+    padding: 8px;
+}
+.bloco > ul > li > a {
+    margin-left: 30px;
+}
+
+
+.bloco > #sair > li{
+    width: 90px;
+    text-align: center;
+    border-radius: 0px 50px 50px 0px;   
+    right: 40px;
+}
+.bloco > #sair > li > a{
+    margin-left: 20px;
+}
+
+.bloco > ul>  li:hover {
+    transition: all 100ms ease-in;
+    transform: scale(1.1);
+    right: 31px;
+}
+.bloco > #sair >  li:hover {
+    transition: all 100ms ease-in;
+    transform: scale(1.1);
+    right: 35px;
+}
+.estoque{
+    grid-area: estoque;
+    background-color: #FFFFFF;
+    margin: auto;
+    text-align: center;
+}
+#botaoAddItens{
+    width: 180px;
+}
+#botaoRvItens{
+    width: 150px;
+}
+#botaoEdItens{
+    width: 125px;
+}
+#IconBotaoAdd{
+    position: absolute;
+    left: 80px;
+    top: 225px;
+}
+#iconRvItens{
+    position: absolute;
+    left: 80px;
+    top: 289px;
+}
+#iconEdItens{
+    position: absolute;
+    left: 79px;
+    top: 350px;
+}
+#iconSair{
+    position: absolute;
+    left: 79px;
+    top: 525px;
+}
+
+/* Modal overlay */
+#modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.61);
+    display: none;
+    z-index: 1;
+}
+
+#modalOverlay.active {
+    display: block;
+}
+
+/* Form containers */
+.form-container {
+    display: none; /* Esconde todos os formulários inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    width: 500px;
+    max-width: 80%;
+}
+
+.form-container.active {
+    display: block; /* Exibe o formulário ativo */
+}
+
+/* Botão de fechar */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #ff0000;
+}
+
+/* Form styles */
+.form-container label {
+    display: block;
+    margin-top: 10px;
+}
+
+.form-container input[type="submit"] {
+    background-color: #008575;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+    margin: auto;
+}
+form > input[type="submit"]:hover{
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+}
+form > input {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 17px;
+    padding-left: 10px;
+}
+

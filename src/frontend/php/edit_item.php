@@ -1,6 +1,6 @@
 <?php
 // Configurações do banco de dados
-include_once "../php/database.php";
+include_once "database.php";
 session_start();
 
 // Obtém os dados do formulário

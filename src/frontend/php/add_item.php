@@ -1,10 +1,10 @@
 <?php
 //ARQUIVO DE CONEXÃO COM O BANCO DE DADOS.
-include_once "../php/database.php";
+include_once "database.php";
 
 try{
 //PEGANDO OS INPUTS DO FORMULARIO.
-$name = $_POST['nome'];
+$name = $_POST['name'];
 $description = $_POST['description'];
 $quantity = $_POST['quantity'];
 $price = $_POST['price'];
@@ -15,7 +15,12 @@ $stmt = $conn->prepare("INSERT INTO itens (name, description, quantity, price, s
 
 $stmt->bind_param("ssidd", $name, $description, $quantity, $price, $sale_price);
 $stmt->execute();
-echo "Item adicionado com sucesso!";
+echo "<script>
+                alert('Item adicionado com sucesso!');
+                setTimeout(function() {
+                    window.location.href = '../pages/TelaLogada.html';
+                }, 50);
+            </script>";
 $stmt->close();
 
 //POSSIVEIS MELHORIAS: VALIDAÇÕES PARA OS ITENS.
