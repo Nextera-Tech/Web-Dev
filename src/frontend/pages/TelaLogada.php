@@ -72,25 +72,26 @@ if (!isset($_SESSION['id'])) {
         <div id="addItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Adicionar Item</h2>
-            <form action="../php/add_item.php" method="POST">
+            <form action="../php/add_item.php" method="POST" enctype="multipart/form-data">
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
-
+        
                 <label for="description">Descrição:</label>
                 <input type="text" id="description" name="description">
-
-                <label for="imagem">Imagem:</label>
-                <input type="file" id="imagem" name="imagem" required>
-
+        
                 <label for="quantity">Quantidade:</label>
                 <input type="number" id="quantity" name="quantity" required>
-
+        
                 <label for="price">Preço:</label>
                 <input type="number" id="price" name="price" step="0.01" required>
-
+        
                 <label for="sale_price">Preço de Venda:</label>
                 <input type="number" id="sale_price" name="sale_price" step="0.01" required>
+        
+                <label for="image">Imagem:</label>
+                <input type="file" id="image" name="image" accept="image/*">
 
+        
                 <input type="submit" value="Adicionar Item">
             </form>
         </div>
