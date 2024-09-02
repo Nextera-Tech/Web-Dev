@@ -11,6 +11,7 @@ body {
     font-weight: 400;
     font-style: normal;
     background-image: url(../Imagens/StockCake-Wine\ selection\ contemplation_1724417811.jpg);
+    overflow: hidden;
 }
 
 main {

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Estoque</title>
     <link rel="stylesheet" href="../styles/telaLogada.css">
+    <link rel="stylesheet" href="../styles/query.css">
     <script src="../script/telaLogada.js"> </script>
+    <script src="../script/query.js"></script>
 </head>
 <body>
     <main>
@@ -32,11 +34,31 @@
         <div class="estoque">
             
         </div>
-    </main>
 
+        <!--Barra de pesquisa-->
+        <div class="div_search">
+            <input type="search" placeholder="Buscar item..">
+            <button >
+                <img src="../assets/icons/search.svg" alt="search">
+            </button>
+        </div>
+
+        <div class="content">
+            <ul id="itemList">
+                <!-- Resultados da busca serão exibidos aqui -->
+            </ul>
+        </div>
+        
+        <div class="content">
+
+        </div>
+
+    </main>
+    
     <div id="modalOverlay"></div>
 
     <div class="container">
+        
         <!-- Formulários -->
         <div id="addItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
@@ -90,5 +112,7 @@
             </form>
         </div>
     </div>
+        
+
 </body>
 </html>
