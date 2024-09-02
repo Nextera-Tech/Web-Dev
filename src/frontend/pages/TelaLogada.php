@@ -1,3 +1,13 @@
+<?php
+session_start();
+error_log('Sessão atual: ' . print_r($_SESSION, true));
+
+// Verificar se o usuário está autenticado
+if (!isset($_SESSION['id'])) {
+    header('Location: ../public/index.html'); // Redireciona para a página de login
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
@@ -23,11 +33,10 @@
                 <img id="iconEdItens" src="../assets/editItens.png" alt=" icon do botão editar itens do estoque">
                 <li id="botaoEdItens" onclick="showForm('editItem')"><a>Editar</a></li>
             </ul>
-
             <ul id="sair">
 
                 <img id="iconSair" src="../assets/botaoDeSair.png" alt="icon do botão de sair de sair da tela to logado">
-                <li id="botaoDeSaida"><a>SAIR</a></li>
+                <li id="botaoDeSaida">SAIR</li>
 
             </ul>
         </div>
@@ -59,16 +68,19 @@
 
     <div class="container">
         
-        <!-- Formulários -->
+        <!-- FORMULARIO ADICIONAR ITENS-->
         <div id="addItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Adicionar Item</h2>
             <form action="../php/add_item.php" method="POST">
                 <label for="name">Nome:</label>
-                <input type="number" id="name" name="name" required>
+                <input type="text" id="name" name="name" required>
 
                 <label for="description">Descrição:</label>
                 <input type="text" id="description" name="description">
+
+                <label for="imagem">Imagem:</label>
+                <input type="file" id="imagem" name="imagem" required>
 
                 <label for="quantity">Quantidade:</label>
                 <input type="number" id="quantity" name="quantity" required>
@@ -82,7 +94,7 @@
                 <input type="submit" value="Adicionar Item">
             </form>
         </div>
-
+        <!-- FORMULARIO DE REMOVER ITEM -->
         <div id="removeItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Remover Item</h2>
@@ -92,7 +104,7 @@
                 <input type="submit" value="Remover Item">
             </form>
         </div>
-
+        <!-- FORMULARIO EDITAR ITENS -->
         <div id="editItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Editar Item</h2>

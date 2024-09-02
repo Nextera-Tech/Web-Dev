@@ -1,7 +1,18 @@
-document.getElementById('botaoDeSaida').addEventListener('click', function() {
-    // Redireciona para o script de logout
-    window.location.href = '../php/logout.php';
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutLink = document.getElementById('botaoDeSaida');
+
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Impede o comportamento padrão do link
+            console.log('Logout link clicado'); // Depuração
+            window.location.href = '../php/logout.php'; // Redireciona para o script de logout
+        });
+    } else {
+        console.log('Elemento de logout não encontrado');
+    }
 });
+
+
 
 function showForm(formId) {
     // Esconde todos os formulários

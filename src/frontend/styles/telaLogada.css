@@ -107,9 +107,6 @@ main{
     border-radius: 0px 50px 50px 0px;   
     right: 40px;
 }
-.bloco > #sair > li > a{
-    margin-left: 20px;
-}
 
 .bloco > ul>  li:hover {
     transition: all 100ms ease-in;
@@ -153,7 +150,7 @@ main{
 }
 #iconSair{
     position: absolute;
-    left: 79px;
+    left: 70px;
     top: 525px;
 }
 

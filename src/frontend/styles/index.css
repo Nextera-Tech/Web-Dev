@@ -6,20 +6,27 @@
 
 body {
     height: 100vh;
+    width: 100%;
     margin: 0px;
-    font-family: "Goldman", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    background-image: url(../Imagens/StockCake-Wine\ selection\ contemplation_1724417811.jpg);
-    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    background-color: #CDCDCD;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
     display: grid;
-    height: 100%;
-    grid-template-columns: 54% 46%;
+    height: 90%;
+    width: 90%;
+    grid-template-columns: 30% 70%;
     grid-template-areas: "conteudoInformacao conteudoLogin";
-    background-color: #ffffff31;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 2px 2px 20px black;
 }
 
 .conteudoInformacao {
@@ -30,131 +37,127 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 15px 0px 0px 15px;
+
+}
+.irRegistro > img{
+    display: flex;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+.irRegistro{
+    width: 100%;
+    height: 100%;
 }
 
-.conteudoInformacao > h1 {
-    align-self: flex-start;
-    margin: 0 0 20px 10px;
+.irRegistro > h1 {
+    margin: 0px 15px 0px 50px;
     color: white;
-    font-size: 55px;
-    font-family: "Goldman", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
+    font-size: 25pt;
 
-.conteudoInformacao > h2 {
-    text-align: justify;
-    color: white;
-    margin: 0px 60px 0px 60px;
-    font-size: 22px;
+
 }
-.conteudoInformacao > img {
-    position: absolute;
-        top: 660px;
-        left: 63%;
-        position: fixed;
-        
+.irRegistro > p {
+    color: white;
+    font-size: 11pt;
+    font-weight: 200;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.irRegistro > a {
+    color: white;
+    font-size: 15pt;
+    font-weight: 800;
+    border: 3px solid white;
+    height: 60px;
+    width: 200px;    
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    cursor: pointer;
+    text-decoration: none;
+}
+.irRegistro > a:hover {
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
 }
 
 .conteudoLogin {
     grid-area: conteudoLogin;
-    background-color: #d9d9d9de;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #FFFFFF;
+    margin: auto;
+    text-align: center;
 }
-.layerbluer {
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+.conteudoLogin > h2{
+    margin-bottom: 20px;
+    color: #008575;
+    font-weight: 900;
+    font-size: 30px;
 }
-.conteudoLogin> img{
-    position: absolute;
-    bottom: 500px;
-    position: fixed;
+.conteudoLogin > p{
+    margin-bottom: 30px;
+    color: #A19292;
+    font-weight: 400;
 }
 form{
-    padding: 50px 10% 50px 10%;
-    margin: 0;
-    position: relative;
-    top: 60px;
-}
-form > label{
-    display: flex;
-    color: black;
-    font-size: 20px;
-    margin-top: 20px;
+    margin: auto;
+    margin-top: 10px;
+    width: 500px;
 }
 form > input {
-    padding: 15px;
-    width: 350px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.521);
-    box-shadow: 0 1px 5px rgb(107, 107, 107); 
+    height: 60px;
+    width: 100%;
+    background-color: #9c9c9c73;
     border: none;
     outline: none;
-}
-form > p{
-    margin: 2px 0px 20px;
     display: flex;
-    justify-content: end;
-    text-decoration: none;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 17px;
+    padding-left: 60px;
 }
-form p .registro{
-    text-decoration: none; 
-    color: red; 
-}
-form .registro:hover{
-    text-decoration: none;
-    color: #008575;
-
+form > input::placeholder {
+    font-size: 16px;
+    color: #9C9C9C;
 }
 form > button{
     display: flex;
     margin: auto;
+    margin-top: 40px;
     cursor: pointer;
     outline: none;
     border: none;
     background-color: #008575;
     justify-content: center;
-    text-transform: uppercase;
-    padding: 15px;
+    padding: 13px;
     width: 250px;
-    border-radius: 15px;
+    border-radius: 50px;
     font-size: 20px;
-    font-family: "Goldman", sans-serif;
-    font-weight: 700;
-    font-style: normal;
     border-bottom: none;
-    box-shadow: 1px 2px 10px black;
+    font-weight: 800;
+    color: white;
 }
 form a{
     text-decoration: none;
     color: black;
-    margin-right: 48px;
 }
 button:hover{
     transition: all 200ms ease-in;
     transform: scale(1.1);
 }
-footer {
+.iconEmail{
     position: absolute;
-    top: 88%;
-    width: 15vw;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 1px 5px rgb(107, 107, 107);
-    font-family: "Goldman", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+    left: 46.60%;
+    top: 47%;
+    transform: translateY(-50%);
 }
-.layerbluer {
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+.iconSenha{
+    position: absolute;
+    left: 47%;
+    top: 59.50%;
+    transform: translateY(-50%);
 }
