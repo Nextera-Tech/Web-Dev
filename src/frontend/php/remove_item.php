@@ -19,7 +19,7 @@ if ($stmt->execute()) {
     echo "<script>
                 alert('Item removido com sucesso!');
                 setTimeout(function() {
-                    window.location.href = '../pages/TelaLogada.html';
+                    window.location.href = '../pages/TelaLogada.php';
                 }, 50);
             </script>";
 } else {

@@ -33,34 +33,34 @@ if (!isset($_SESSION['id'])) {
                 <img id="iconEdItens" src="../assets/editItens.png" alt=" icon do botão editar itens do estoque">
                 <li id="botaoEdItens" onclick="showForm('editItem')"><a>Editar</a></li>
             </ul>
+
             <ul id="sair">
 
                 <img id="iconSair" src="../assets/botaoDeSair.png" alt="icon do botão de sair de sair da tela to logado">
-                <li id="botaoDeSaida">SAIR</li>
+                <li id="botaoDeSaida"><a>SAIR</a></li>
 
             </ul>
         </div>
         <div class="estoque">
             
         </div>
-
-        <!--Barra de pesquisa-->
-        <div class="div_search">
-            <input type="search" placeholder="Buscar item..">
-            <button >
-                <img src="../assets/icons/search.svg" alt="search">
-            </button>
-        </div>
-
-        <div class="content">
-            <ul id="itemList">
-                <!-- Resultados da busca serão exibidos aqui -->
-            </ul>
-        </div>
         
         <div class="content">
 
         </div>
+
+        <div class="bloco">
+                <h2>Menu</h2>
+                <!-- Seu menu ou outras partes do layout -->
+            </div>
+            <div class="estoque">
+                <h1>Pesquisa de Itens</h1>
+                <form class="div_search" onsubmit="searchProducts(event)">
+                    <input type="text" id="searchQuery" placeholder="Digite o nome do item">
+                    <button type="submit">Pesquisar</button>
+                </form>
+                <div id="results"></div>
+            </div>
 
     </main>
     
@@ -68,34 +68,30 @@ if (!isset($_SESSION['id'])) {
 
     <div class="container">
         
-        <!-- FORMULARIO ADICIONAR ITENS-->
+        <!-- Formulários -->
         <div id="addItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Adicionar Item</h2>
-            <form action="../php/add_item.php" method="POST" enctype="multipart/form-data">
+            <form action="../php/add_item.php" method="POST">
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
-        
+
                 <label for="description">Descrição:</label>
                 <input type="text" id="description" name="description">
-        
+
                 <label for="quantity">Quantidade:</label>
                 <input type="number" id="quantity" name="quantity" required>
-        
+
                 <label for="price">Preço:</label>
                 <input type="number" id="price" name="price" step="0.01" required>
-        
+
                 <label for="sale_price">Preço de Venda:</label>
                 <input type="number" id="sale_price" name="sale_price" step="0.01" required>
-        
-                <label for="image">Imagem:</label>
-                <input type="file" id="image" name="image" accept="image/*">
 
-        
                 <input type="submit" value="Adicionar Item">
             </form>
         </div>
-        <!-- FORMULARIO DE REMOVER ITEM -->
+
         <div id="removeItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Remover Item</h2>
@@ -105,7 +101,7 @@ if (!isset($_SESSION['id'])) {
                 <input type="submit" value="Remover Item">
             </form>
         </div>
-        <!-- FORMULARIO EDITAR ITENS -->
+
         <div id="editItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Editar Item</h2>

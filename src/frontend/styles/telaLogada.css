@@ -34,27 +34,38 @@ main{
     flex-direction: row; /* Alinhar o botão ao lado da barra de pesquisa */
     align-items: center; /* Centralizar verticalmente o botão e a barra */
     gap: 5px;
-    position: relative;
-    bottom: 460px;
-    left: 600px;
+    margin: 20px auto;
 }
-
 .div_search > input {
     padding: 10px;
     outline: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
     flex-grow: 1; /* Faz com que a barra de pesquisa ocupe o espaço disponível */
+    width: 100%;
 }
-
 .div_search > button {
     background-color: #008575; /* Altere a cor conforme necessário */
     border: none;
-    padding: 8px;
+    padding: 10px 20px;
     cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
 }
-
-.div_search > button > img {
-    width: 20px;
-    height: 20px;
+.div_search > button:hover {
+    background-color: #005f4f; /* Cor mais escura para o estado de hover */
+}
+#results div {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+#results h2 {
+    margin: 0 0 10px 0;
+}
+#results p {
+    margin: 0;
 }
 
 .bloco {
