@@ -16,22 +16,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $imageData = file_get_contents($_FILES['image']['tmp_name']);
     }
+
     // Prepara e executa a consulta SQL
-    $sql = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?)');
-    $sql->bind_param('ssddsb', $name, $description, $quantity, $price, $sale_price, $imageData);
-    $sql->execute();
+    if ($stmt = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?)')) {
+        $stmt->bind_param('ssddsb', $name, $description, $quantity, $price, $sale_price, $imageData);
+        
+        if ($stmt->execute()) {
+            $_SESSION['message'] = 'Item adicionado com sucesso!';
+            header('Location: ../pages/TelaLogada.php');
+            exit(); // Certifique-se de sair após o redirecionamento
+        } else {
+            $_SESSION['error'] = 'Erro ao adicionar item: ' . $stmt->error;
+            header('Location: ../pages/error.php'); // Redireciona para uma página de erro
+            exit();
+        }
 
-    if ($sql->execute()) {
-        echo 'Item adicionado com sucesso!';
+        $stmt->close();
     } else {
-        echo 'Erro ao adicionar item: ' . $sql->error;
+        $_SESSION['error'] = 'Erro na preparação da consulta: ' . $conn->error;
+        header('Location: ../pages/error.php'); // Redireciona para uma página de erro
+        exit();
     }
-
-    // Redireciona ou exibe uma mensagem de sucesso
-    header('Location: ../pages/TelaLogada.php');
+    echo $imageData;
+    // Fecha a conexão
+    $conn->close();
 }
-
-// Fecha a conexão
-$sql->close();
-$conn->close();
 ?>
