@@ -21,7 +21,7 @@ main{
     display: grid;
     height: 90%;
     width: 90%;
-    grid-template-columns: 27% 77%;
+    grid-template-columns: 27% 73%;
     grid-template-areas: "bloco estoque";
     background-color: #FFFFFF;
     border-radius: 15px;
@@ -31,31 +31,25 @@ main{
 
 .div_search {
     display: flex;
-    flex-direction: row; /* Alinhar o botão ao lado da barra de pesquisa */
-    align-items: center; /* Centralizar verticalmente o botão e a barra */
-    gap: 5px;
-    margin: 20px auto;
-}
+    justify-content: center;
+    align-items: flex-start; 
+    margin-top: 30px;
+  }
 .div_search > input {
-    padding: 10px;
     outline: none;
+    padding: 15;
+    width: 400px;
+    height: 50px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 30px;
     font-size: 16px;
-    flex-grow: 1; /* Faz com que a barra de pesquisa ocupe o espaço disponível */
-    width: 100%;
+    background-color: #D9D9D9;
 }
-.div_search > button {
-    background-color: #008575; /* Altere a cor conforme necessário */
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
-    font-size: 16px;
+.div_search > input:hover{
+    border: 1px solid #008575;
 }
-.div_search > button:hover {
-    background-color: #005f4f; /* Cor mais escura para o estado de hover */
+.div_search > input::placeholder{
+    color: #9C9C9C;
 }
 #results div {
     border-bottom: 1px solid #ddd;
@@ -72,8 +66,6 @@ main{
     grid-area: bloco;
     height: 100%;
     background-color: #008575;
-    border: 1px solid black;
-    left: 10px;
     border-radius: 15px 0px 0px 15px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.425);
 }
@@ -87,7 +79,14 @@ main{
     position: relative;
 }
 
-.bloco > ul {
+.bloco > #funcao {
+    margin-top: 130px;
+    list-style: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+}
+.bloco > #sair {
     margin-top: 130px;
     list-style: none;
     color: white;
@@ -95,7 +94,7 @@ main{
     font-weight: 800;
 }
 
-.bloco > ul > li {
+.bloco > #funcao > li {
     text-decoration: none;
     margin-top: 20px;
     padding: 3px;
@@ -107,16 +106,25 @@ main{
     border-left: 0px;
     padding: 8px;
 }
-.bloco > ul > li > a {
+
+.bloco > #funcao > li > a {
     margin-left: 30px;
 }
-
 
 .bloco > #sair > li{
     width: 90px;
     text-align: center;
     border-radius: 0px 50px 50px 0px;   
-    right: 40px;
+    right: 40px;    
+    text-decoration: none;
+    padding: 3px;
+    position: relative;
+    right: 39px;
+    cursor: pointer;
+    border-radius: 0px 50px 50px 0px;
+    border: 3px solid white;
+    border-left: 0px;
+    padding: 8px;
 }
 
 .bloco > ul>  li:hover {
@@ -129,12 +137,17 @@ main{
     transform: scale(1.1);
     right: 35px;
 }
-.estoque{
+.estoque {
     grid-area: estoque;
     background-color: #FFFFFF;
     margin: auto;
     text-align: center;
-}
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    height: 100%;
+  }
 #botaoAddItens{
     width: 180px;
 }
@@ -163,6 +176,11 @@ main{
     position: absolute;
     left: 70px;
     top: 525px;
+}
+#barraDePes{
+    position: absolute;
+    right: 330px;
+    top: 72px;
 }
 
 /* Modal overlay */
@@ -251,4 +269,25 @@ form > input {
     font-size: 17px;
     padding-left: 10px;
 }
+/* Estilos básicos para a exibição dos itens */
+.item-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+/* Adicione mais estilos conforme necessário para o layout */
 

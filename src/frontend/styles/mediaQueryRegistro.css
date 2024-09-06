@@ -1,4 +1,4 @@
-@media screen and (max-width: 1920px){ 
+/* @media screen and (max-width: 1920px) and max{ 
     .irLogin > img{
         margin-top: 140px;
         margin-bottom: 50px;
@@ -33,7 +33,7 @@
         transform: translateY(-50%);
     }
     
-}
+} */
 
 @media screen and (max-width: 1290px){
     .irLogin > img{

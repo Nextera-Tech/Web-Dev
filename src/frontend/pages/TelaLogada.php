@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Estoque</title>
     <link rel="stylesheet" href="../styles/telaLogada.css">
-    <link rel="stylesheet" href="../styles/query.css">
+    <link rel="stylesheet" href="../styles/mediaQueryTelaLogada.css">
     <script src="../script/telaLogada.js"> </script>
     <script src="../script/query.js"></script>
 </head>
@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
     <main>
         <div class="bloco">
             <h2>Mix Controle</h2>
-            <ul>
+            <ul id='funcao'>
                 <img id="IconBotaoAdd" src="../assets/addItens.png" alt="Icon do botão de adicionar itens">
                 <li id="botaoAddItens" onclick="showForm('addItem')"><a>Adicionar itens</a></li>
 
@@ -41,25 +41,14 @@ if (!isset($_SESSION['id'])) {
 
             </ul>
         </div>
-        <div class="estoque">
-            
-        </div>
-        
-        <div class="content">
-
-        </div>
-
-        <div class="bloco">
-                <h2>Menu</h2>
-                <!-- Seu menu ou outras partes do layout -->
             </div>
             <div class="estoque">
-                <h1>Pesquisa de Itens</h1>
                 <form class="div_search" onsubmit="searchProducts(event)">
-                    <input type="text" id="searchQuery" placeholder="Digite o nome do item">
-                    <button type="submit">Pesquisar</button>
+                    <img id='barraDePes' src="../assets/mingcute_search-2-fill.png" alt="icon na barra de pesquisa">
+                    <input type="text" id="searchQuery" placeholder="Pesquisar itens...">
                 </form>
                 <div id="results"></div>
+                <?php include '../php/query.php'; ?>
             </div>
 
     </main>
