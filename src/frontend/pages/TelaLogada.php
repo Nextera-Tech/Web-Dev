@@ -44,11 +44,11 @@ if (!isset($_SESSION['id'])) {
             </div>
             <div class="estoque">
                 <form class="div_search" onsubmit="searchProducts(event)">
-                    <img id='barraDePes' src="../assets/mingcute_search-2-fill.png" alt="icon na barra de pesquisa">
                     <input type="text" id="searchQuery" placeholder="Pesquisar itens...">
                 </form>
-                <div id="results"></div>
-                <?php include '../php/query.php'; ?>
+                <div id="results" class="results-container">
+                    <?php include '../php/query.php'; ?>
+                </div>
             </div>
 
     </main>
@@ -78,7 +78,7 @@ if (!isset($_SESSION['id'])) {
                 <input type="number" id="sale_price" name="sale_price" step="0.01" required>
 
                 <label for="image">Imagem:</label>
-                <input type="file" id="image" name="image" accept="image/*">
+                <input type="file" id="image" name="image" required>
 
                 <input type="submit" value="Adicionar Item">
             </form>
