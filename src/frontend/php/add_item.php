@@ -12,10 +12,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = $_POST['price'];
     $sale_price = $_POST['sale_price'];
 
-    $imageData = null;
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $imageData = file_get_contents($_FILES['image']['tmp_name']);
+            //guardando o arquivo em uma variavel. reaproveitamento.
+    $imageData = $_FILES['image'];
+        
+    if($imageData['error']){
+        die("Falha ao enviar arquivo");
     }
+        
+    if($imageData['size'] > 2097152){
+            die("Arquivo grande demais");
+    }
+            //guardando o caminho da imagem.
+    $pasta = "../upload";
+            //guardando o nome da imagem.
+    $nome_arquivo = $imageData['name'];
+            //troca o nome recebido da imagem evitando o dup de nome e segurança no banco.
+    $novo_nome_arquivo = uniqid($nome_arquivo);
+            //pega a extensão do arquivo enviado: jpg/jpeg/pdf/txt/etc.
+    $extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+        
+    $path = $pasta . $novo_nome_arquivo . "." . $extensao;
+        
+            //validando as extensões do arquivo.
+    if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"){
+            die("Tipo de arquivo não suportado: apenas png, jpge e jpg");
+    }
+    $check = move_uploaded_file($imageData["tmp_name"], $path);
+    if($check){
+        $conn->query("INSERT INTO itens (image_name, path) VALUES ('$nome_arquivo', '$path')") or die($conn->error);
+    }
+    $sql = $conn->query("SELECT * FROM arquivos") or die($conn->error);
 
     // Prepara e executa a consulta SQL
     if ($stmt = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?)')) {

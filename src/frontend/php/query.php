@@ -22,12 +22,15 @@ if ($result->num_rows > 0) {
         echo '<div id="resultado">';
         
         // Exibe a imagem se disponível
-        echo '<img src="../php/getImage.php?id=' . htmlspecialchars($row['id']) . '" style="width:70px;height:70px; object-fit: cover; margin-bottom: 0px; " >';
+        // Corrige a sintaxe para incluir a variável PHP dentro do atributo src
+        $imagePath = htmlspecialchars($imageData['path']);
+        echo '<img src="' . $imagePath . '" alt="Imagem do item" style="width:70px;height:70px; object-fit: cover; margin-bottom: 0px;">';
+        
         // Exibe outros dados do item
         echo '<h2>' . htmlspecialchars($row['name']) . '</h2>';
-        echo '<p>' .htmlspecialchars ($row['description']) . '</p>';
-        echo '<p>Quantidade:  ' . htmlspecialchars($row['quantity']) . '</p>';
-        echo '<p>Preço:  R$ ' . number_format($row['price'], 2, ',', '.') . '</p>';
+        echo '<p>' . htmlspecialchars($row['description']) . '</p>';
+        echo '<p>Quantidade: ' . htmlspecialchars($row['quantity']) . '</p>';
+        echo '<p>Preço: R$ ' . number_format($row['price'], 2, ',', '.') . '</p>';
         echo '<p>Preço de Venda: R$ ' . number_format($row['sale_price'], 2, ',', '.') . '</p>';
         
         echo '</div>';

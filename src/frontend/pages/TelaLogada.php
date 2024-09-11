@@ -98,15 +98,19 @@ if (!isset($_SESSION['id'])) {
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Editar Item</h2>
             <form action="../php/edit_item.php" method="POST">
-                <label for="edit_id">ID do Item:</label>
-                <input type="number" id="edit_id" name="id" required>
+
+                <label for="name">Nome: </label>
+                <input type="text" id="name" name="name" required>
 
                 <label for="edit_description">Nova Descrição:</label>
                 <input type="text" id="edit_description" name="description">
+
                 <label for="edit_quality">Nova Qualidade:</label>
                 <input type="text" id="edit_quality" name="quality">
+
                 <label for="edit_price">Novo Preço:</label>
                 <input type="number" id="edit_price" name="price" step="0.01">
+
                 <label for="edit_sale_price">Novo Preço de Venda:</label>
                 <input type="number" id="edit_sale_price" name="sale_price" step="0.01">
                 <input type="submit" value="Atualizar Item">
