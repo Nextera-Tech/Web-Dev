@@ -66,9 +66,6 @@ if (!isset($_SESSION['id'])) {
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="description">Descrição:</label>
-                <input type="text" id="description" name="description">
-
                 <label for="quantity">Quantidade:</label>
                 <input type="number" id="quantity" name="quantity" required>
 

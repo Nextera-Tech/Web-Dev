@@ -7,7 +7,6 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
-    $description = $_POST['description'];
     $quantity = $_POST['quantity'];
     $price = $_POST['price'];
     $sale_price = $_POST['sale_price'];
@@ -40,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Inserindo no banco de dados
-    if ($stmt = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image_path) VALUES (?, ?, ?, ?, ?, ?)')) {
-        $stmt->bind_param('ssddss', $name, $description, $quantity, $price, $sale_price, $path);
+    if ($stmt = $conn->prepare('INSERT INTO itens (name, quantity, price, sale_price, image_path) VALUES (?, ?, ?, ?, ?)')) {
+        $stmt->bind_param('sddss', $name, $quantity, $price, $sale_price, $path);
         
         if ($stmt->execute()) {
             $_SESSION['message'] = 'Item adicionado com sucesso!';
