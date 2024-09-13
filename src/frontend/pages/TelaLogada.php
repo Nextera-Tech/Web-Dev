@@ -61,6 +61,7 @@ if (!isset($_SESSION['id'])) {
         <div id="addItem" class="form-container">
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Adicionar Item</h2>
+            
             <form action="../php/add_item.php" method="POST" enctype="multipart/form-data">
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>

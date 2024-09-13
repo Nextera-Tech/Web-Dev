@@ -23,7 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             die("Arquivo grande demais");
     }
             //guardando o caminho da imagem.
-    $pasta = "../upload";
+    $pasta = __DIR__ . '../upload';
+
+    if(!is_dir($pasta)){
+        mkdir($pasta, 0775, true);
+    }
             //guardando o nome da imagem.
     $nome_arquivo = $imageData['name'];
             //troca o nome recebido da imagem evitando o dup de nome e segurança no banco.
@@ -31,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //pega a extensão do arquivo enviado: jpg/jpeg/pdf/txt/etc.
     $extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
         
-    $path = $pasta . $novo_nome_arquivo . "." . $extensao;
+    $image_path = $pasta . $novo_nome_arquivo . "." . $extensao;
         
             //validando as extensões do arquivo.
     if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"){
@@ -39,7 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $check = move_uploaded_file($imageData["tmp_name"], $path);
     if($check){
+        $conn->query("INSERT INTO itens (image_name, path) VALUES ('$nome_arquivo', '$path')") or die($conn->error);
     }
+    $sql = $conn->query("SELECT * FROM arquivos") or die($conn->error);
 
     // Prepara e executa a consulta SQL
     if ($stmt = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?)')) {
@@ -61,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: ../pages/error.php'); // Redireciona para uma página de erro
         exit();
     }
-    echo $imageData;
     // Fecha a conexão
     $conn->close();
 }
