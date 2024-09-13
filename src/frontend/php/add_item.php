@@ -12,56 +12,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = $_POST['price'];
     $sale_price = $_POST['sale_price'];
 
-            //guardando o arquivo em uma variavel. reaproveitamento.
+    // Guardando o arquivo em uma variável para reutilização
     $imageData = $_FILES['image'];
         
-    if($imageData['error']){
+    if ($imageData['error']) {
         die("Falha ao enviar arquivo");
     }
         
-    if($imageData['size'] > 2097152){
-            die("Arquivo grande demais");
+    if ($imageData['size'] > 2097152) {
+        die("Arquivo grande demais");
     }
-            //guardando o caminho da imagem.
-    $pasta = "../upload";
-            //guardando o nome da imagem.
+        
+    $pasta = "../upload/";
     $nome_arquivo = $imageData['name'];
-            //troca o nome recebido da imagem evitando o dup de nome e segurança no banco.
-    $novo_nome_arquivo = uniqid($nome_arquivo);
-            //pega a extensão do arquivo enviado: jpg/jpeg/pdf/txt/etc.
+    $novo_nome_arquivo = uniqid() . '.' . strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+    $path = $pasta . $novo_nome_arquivo;
+        
+    // Validando as extensões do arquivo
     $extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
-        
-    $path = $pasta . $novo_nome_arquivo . "." . $extensao;
-        
-            //validando as extensões do arquivo.
-    if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"){
-            die("Tipo de arquivo não suportado: apenas png, jpge e jpg");
-    }
-    $check = move_uploaded_file($imageData["tmp_name"], $path);
-    if($check){
+    if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
+        die("Tipo de arquivo não suportado: apenas png, jpeg e jpg");
     }
 
-    // Prepara e executa a consulta SQL
-    if ($stmt = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?)')) {
-        $stmt->bind_param('ssddsb', $name, $description, $quantity, $price, $sale_price, $imageData);
+    $check = move_uploaded_file($imageData["tmp_name"], $path);
+    if (!$check) {
+        die("Falha ao mover o arquivo para o diretório de upload.");
+    }
+
+    // Inserindo no banco de dados
+    if ($stmt = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image_path) VALUES (?, ?, ?, ?, ?, ?)')) {
+        $stmt->bind_param('ssddss', $name, $description, $quantity, $price, $sale_price, $path);
         
         if ($stmt->execute()) {
             $_SESSION['message'] = 'Item adicionado com sucesso!';
             header('Location: ../pages/TelaLogada.php');
-            exit(); // Certifique-se de sair após o redirecionamento
+            exit();
         } else {
             $_SESSION['error'] = 'Erro ao adicionar item: ' . $stmt->error;
-            header('Location: ../pages/error.php'); // Redireciona para uma página de erro
+            header('Location: ../pages/error.php');
             exit();
         }
 
         $stmt->close();
     } else {
         $_SESSION['error'] = 'Erro na preparação da consulta: ' . $conn->error;
-        header('Location: ../pages/error.php'); // Redireciona para uma página de erro
+        header('Location: ../pages/error.php');
         exit();
     }
-    echo $imageData;
+    
     // Fecha a conexão
     $conn->close();
 }
