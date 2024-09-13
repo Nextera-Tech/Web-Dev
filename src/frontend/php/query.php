@@ -8,7 +8,7 @@ include_once "database.php";
 $query = isset($_GET['q']) ? $_GET['q'] : '';
 
 // Prepara e executa a consulta SQL
-$sql = $conn->prepare('SELECT id, name, description, quantity, price, sale_price FROM itens WHERE name LIKE ?');
+$sql = $conn->prepare('SELECT id, name, description, quantity, price, sale_price, image,image_path, image_name FROM itens WHERE name LIKE ?');
 $searchTerm = "%{$query}%";
 $sql->bind_param('s', $searchTerm);
 $sql->execute();
@@ -22,8 +22,7 @@ if ($result->num_rows > 0) {
         echo '<div id="resultado">';
         
         // Exibe a imagem se disponível
-        // Corrige a sintaxe para incluir a variável PHP dentro do atributo src
-        $imagePath = htmlspecialchars($imageData['path']);
+        $imagePath = isset($row['image_path']) ? htmlspecialchars($row['image_path']) : 'default-image.png';
         echo '<img src="' . $imagePath . '" alt="Imagem do item" style="width:70px;height:70px; object-fit: cover; margin-bottom: 0px;">';
         
         // Exibe outros dados do item

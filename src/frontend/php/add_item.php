@@ -39,9 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $check = move_uploaded_file($imageData["tmp_name"], $path);
     if($check){
-        $conn->query("INSERT INTO itens (image_name, path) VALUES ('$nome_arquivo', '$path')") or die($conn->error);
     }
-    $sql = $conn->query("SELECT * FROM arquivos") or die($conn->error);
 
     // Prepara e executa a consulta SQL
     if ($stmt = $conn->prepare('INSERT INTO itens (name, description, quantity, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?)')) {
