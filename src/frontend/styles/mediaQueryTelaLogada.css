@@ -1,6 +1,6 @@
 @media screen and (max-width: 1290px){
     .bloco > #sair {
-        margin-top: 118px;
+        margin-top: 90px;
         list-style: none;
         color: white;
         font-size: 15px;
@@ -21,11 +21,8 @@
     #botaoEdItens{
         width: 135px;
     }
-    #iconSair{
-        top: 510px;
-    }
     #barraDePes{
         right: 300px;
-    }
+    } 
 
 }

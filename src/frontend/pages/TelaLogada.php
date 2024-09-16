@@ -22,7 +22,7 @@ if (!isset($_SESSION['id'])) {
 <body>
     <main>
         <div class="bloco">
-            <h2>Mix Controle</h2>
+            <img src="../assets/MixControleLogo.png" alt="logo do site na tela to logado">
             <ul id='funcao'>
                 <img id="IconBotaoAdd" src="../assets/addItens.png" alt="Icon do botão de adicionar itens">
                 <li id="botaoAddItens" onclick="showForm('addItem')"><a>Adicionar itens</a></li>
@@ -98,12 +98,9 @@ if (!isset($_SESSION['id'])) {
             <form action="../php/edit_item.php" method="POST">
 
                 <label for="name">Nome: </label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" >
 
-                <label for="edit_description">Nova Descrição:</label>
-                <input type="text" id="edit_description" name="description">
-
-                <label for="edit_quality">Nova Qualidade:</label>
+                <label for="edit_quality">Nova Quantidade: </label>
                 <input type="text" id="edit_quality" name="quality">
 
                 <label for="edit_price">Novo Preço:</label>

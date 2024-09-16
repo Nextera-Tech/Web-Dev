@@ -29,8 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     // Validando as extensões do arquivo
     $extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
-    if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
-        die("Tipo de arquivo não suportado: apenas png, jpeg e jpg");
+    if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {            
+        echo "<script>
+        alert('Tipo de arquivo não suportado! Apenas png, jpeg e jpg ');
+        window.location.href = '../pages/TelaLogada.php';
+    </script>";
     }
 
     $check = move_uploaded_file($imageData["tmp_name"], $path);

@@ -5,7 +5,6 @@ session_start();
 
 // Obtém os dados do formulário
 $name = $_POST['name'];
-$description = $_POST['description'] ?? null;
 $quantity = $_POST['quantity'] ?? null;
 $price = $_POST['price'] ?? null;
 $sale_price = $_POST['sale_price'] ?? null;
@@ -14,9 +13,6 @@ $sale_price = $_POST['sale_price'] ?? null;
 $sql = "UPDATE itens SET ";
 $updates = [];
 
-if ($description !== null) {
-    $updates[] = "description = ?";
-}
 if ($quantity !== null) {
     $updates[] = "quantity = ?";
 }
@@ -41,10 +37,6 @@ if ($stmt === false) {
 $types = '';
 $values = [];
 
-if ($description !== null) {
-    $types .= 's';
-    $values[] = $description;
-}
 if ($quantity !== null) {
     $types .= 's';
     $values[] = $quantity;

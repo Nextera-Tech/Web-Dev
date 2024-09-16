@@ -30,56 +30,6 @@ main{
 
 }
 
-.div_search {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; 
-    margin-top: 30px;
-  }
-.div_search > input {
-    outline: none;
-    padding: 15;
-    width: 400px;
-    height: 50px;
-    border: 1px solid #ddd;
-    border-radius: 30px;
-    font-size: 16px;
-    background-color: #D9D9D9;
-}
-.div_search > input:hover{
-    border: 1px solid #008575;
-}
-.div_search > input::placeholder{
-    color: #9C9C9C;
-}
-
-.results-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 15px;
-    border: 15px;
-}
-
-.results-container .item-container {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.results-container .item-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-.results-container .item-details {
-    flex: 1;
-}
 
 
 .bloco {
@@ -88,6 +38,11 @@ main{
     background-color: #008575;
     border-radius: 15px 0px 0px 15px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.425);
+}
+.bloco > img {
+    display: flex;
+    margin: auto;
+    margin-top: 10px ;
 }
 
 .bloco > h2{
@@ -100,14 +55,14 @@ main{
 }
 
 .bloco > #funcao {
-    margin-top: 130px;
+    margin-top: 0px;
     list-style: none;
     color: white;
     font-size: 15px;
     font-weight: 800;
 }
 .bloco > #sair {
-    margin-top: 130px;
+    margin-top: 90px;
     list-style: none;
     color: white;
     font-size: 15px;
@@ -164,8 +119,59 @@ main{
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    border: 15px;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.div_search {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    margin-top: 30px;
   }
+.div_search > input {
+    outline: none;
+    padding: 15;
+    width: 400px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    background-color: #D9D9D9;
+}
+.div_search > input:hover{
+    border: 1px solid #008575;
+}
+.div_search > input::placeholder{
+    color: #9C9C9C;
+}
+
+.results-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    border: 15px;
+}
+
+.results-container .item-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.results-container .item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.results-container .item-details {
+    flex: 1;
+}
 
 #botaoAddItens{
     width: 180px;
@@ -178,28 +184,27 @@ main{
 }
 #IconBotaoAdd{
     position: absolute;
+    top: 250px;
     left: 80px;
-    top: 225px;
 }
 #iconRvItens{
     position: absolute;
+    top: 315px;
     left: 80px;
-    top: 289px;
 }
 #iconEdItens{
     position: absolute;
-    left: 79px;
-    top: 350px;
+    top: 378px;
+    left: 78px;
 }
 #iconSair{
     position: absolute;
-    left: 70px;
-    top: 525px;
+    left: 72px;
+    top: 515px;
 }
 #barraDePes{
     position: absolute;
-    right: 330px;
-    top: 72px;
+
 }
 
 /* Modal overlay */
