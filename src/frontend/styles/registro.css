@@ -38,24 +38,29 @@ main {
     align-items: center;
     border-radius: 15px 0px 0px 15px;
 }
+.irLogin > img{
+    display: flex;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
 .irLogin{
     width: 100%;
-    height: 50%;
-    margin-top: 110px;
+    height: 100%;
 }
 
 .irLogin > h1 {
-    margin: 0px 10px 0px 40px;
+    margin: 0px 15px 0px 50px;
     color: white;
     font-size: 25pt;
-
 
 }
 .irLogin > p {
     color: white;
     font-size: 11pt;
     font-weight: 200;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     text-align: center;
 }
 .irLogin > a {

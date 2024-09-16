@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Ago-2024 às 14:10
+-- Tempo de geração: 02-Set-2024 às 15:53
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -32,8 +32,9 @@ CREATE TABLE `itens` (
   `name` varchar(200) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `sale_price` int(11) DEFAULT NULL,
+  `price` decimal(38,38) DEFAULT NULL,
+  `sale_price` decimal(38,38) DEFAULT NULL,
+  `image` longblob NOT NULL,
   `users_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,8 +42,8 @@ CREATE TABLE `itens` (
 -- Extraindo dados da tabela `itens`
 --
 
-INSERT INTO `itens` (`id`, `name`, `description`, `quantity`, `price`, `sale_price`, `users_id`) VALUES
-(2, NULL, 'ovo2', 458, 20, 25, NULL);
+INSERT INTO `itens` (`id`, `name`, `description`, `quantity`, `price`, `sale_price`, `image`, `users_id`) VALUES
+(0, 'miojo', 'saudavel para comer de noite', 10, 0.99999999999999999999999999999999999999, 0.99999999999999999999999999999999999999, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -87,12 +88,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
-
---
--- AUTO_INCREMENT de tabela `itens`
---
-ALTER TABLE `itens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `users`

@@ -4,9 +4,8 @@ include_once "database.php";
 session_start();
 
 // Obtém os dados do formulário
-$id = $_POST['id'];
-$description = $_POST['description'] ?? null;
-$quality = $_POST['quality'] ?? null;
+$name = $_POST['name'];
+$quantity = $_POST['quantity'] ?? null;
 $price = $_POST['price'] ?? null;
 $sale_price = $_POST['sale_price'] ?? null;
 
@@ -14,10 +13,7 @@ $sale_price = $_POST['sale_price'] ?? null;
 $sql = "UPDATE itens SET ";
 $updates = [];
 
-if ($description !== null) {
-    $updates[] = "description = ?";
-}
-if ($quality !== null) {
+if ($quantity !== null) {
     $updates[] = "quantity = ?";
 }
 if ($price !== null) {
@@ -27,7 +23,7 @@ if ($sale_price !== null) {
     $updates[] = "sale_price = ?";
 }
 
-$sql .= implode(", ", $updates) . " WHERE id = ?";
+$sql .= implode(", ", $updates) . " WHERE name = ?";
 
 // Prepara a consulta
 $stmt = $conn->prepare($sql);
@@ -41,13 +37,9 @@ if ($stmt === false) {
 $types = '';
 $values = [];
 
-if ($description !== null) {
+if ($quantity !== null) {
     $types .= 's';
-    $values[] = $description;
-}
-if ($quality !== null) {
-    $types .= 's';
-    $values[] = $quality;
+    $values[] = $quantity;
 }
 if ($price !== null) {
     $types .= 'd';
@@ -58,16 +50,22 @@ if ($sale_price !== null) {
     $values[] = $sale_price;
 }
 
-$values[] = $id; // Adiciona o ID para o parâmetro WHERE
-$types .= 'i'; // Tipo para o ID
+$values[] = $name; // Adiciona o ID para o parâmetro WHERE
+$types .= 's'; 
 
 $stmt->bind_param($types, ...$values);
 
 // Executa a consulta
 if ($stmt->execute()) {
-    echo "Item atualizado com sucesso!";
+    echo "<script>
+    alert('Item atualizado com sucesso!');
+    window.location.href = '../pages/TelaLogada.php';
+    </script>";
 } else {
-    echo "Erro ao atualizar item: " . $stmt->error;
+    echo "<script>
+    alert('Erro ao atualizar item:.');
+    window.location.href = ../pages/TelaLogada.php';
+    </script>" . $stmt->error;
 }
 
 // Fecha a conexão

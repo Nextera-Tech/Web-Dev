@@ -1,0 +1,28 @@
+@media screen and (max-width: 1290px){
+    .bloco > #sair {
+        margin-top: 90px;
+        list-style: none;
+        color: white;
+        font-size: 15px;
+        font-weight: 800;
+    }
+    .bloco > #funcao > li{
+        padding-left: 15px;
+    }
+    .bloco > #sair > li{
+        width: 100px;
+    }
+    #botaoAddItens{
+        width: 190px;
+    }
+    #botaoRvItens{
+        width: 160px;
+    }
+    #botaoEdItens{
+        width: 135px;
+    }
+    #barraDePes{
+        right: 300px;
+    } 
+
+}
