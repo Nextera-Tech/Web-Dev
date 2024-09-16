@@ -13,7 +13,8 @@ if (!isset($_SESSION['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Estoque</title>
+    <title>MixControle - Estoque</title>
+    <link rel="shortcut icon" href="../assets/entrega-rapida.png" type="image/x-icon">
     <link rel="stylesheet" href="../styles/telaLogada.css">
     <link rel="stylesheet" href="../styles/mediaQueryTelaLogada.css">
     <script src="../script/telaLogada.js"> </script>
