@@ -1,0 +1,69 @@
+/* @media screen and (max-width: 1920px) and max{ 
+    .irLogin > img{
+        margin-top: 140px;
+        margin-bottom: 50px;
+        height: 250px;
+    }
+    .irLogin > h1 {
+        font-size: 35pt;
+    }
+    .irLogin > p {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .irLogin > a {
+        width: 310px;
+    }
+    .iconLogin{
+        position: absolute;
+        left: 51.50%;
+        top: 45%;
+        transform: translateY(-50%);
+    }
+    .iconEmail{
+        position: absolute;
+        left: 51.20%;
+        top: 52.90%;
+        transform: translateY(-50%);
+    }
+    .iconSenha{
+        position: absolute;
+        left: 51.50%;
+        top: 60.10%;
+        transform: translateY(-50%);
+    }
+    
+} */
+
+@media screen and (max-width: 1290px){
+    .irLogin > img{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .irLogin > h1 {
+        font-size: 20pt;
+    }
+    .irLogin > p {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .iconLogin{
+        position: absolute;
+        left: 46%;
+        top: 42%;
+        transform: translateY(-50%);
+    }
+    .iconEmail{
+        position: absolute;
+        left: 45.60%;
+        top: 54%;
+        transform: translateY(-50%);
+    }
+    .iconSenha{
+        position: absolute;
+        left: 46%;
+        top: 66.90%;
+        transform: translateY(-50%);
+    }
+    
+}

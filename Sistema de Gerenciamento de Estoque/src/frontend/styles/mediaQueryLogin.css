@@ -1,0 +1,14 @@
+@media screen and (max-width: 1290px){
+.iconEmail{
+    position: absolute;
+    left: 45.50%;
+    top: 47%;
+    transform: translateY(-50%);
+}
+.iconSenha{
+    position: absolute;
+    left: 46%;
+    top: 59.50%;
+    transform: translateY(-50%);
+}
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/entrega-rapida.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/mediaQueryLogin.css">
+    <title>MixControle - Login</title>
+</head>
+
+<body>
+    <main>
+        <div class="conteudoInformacao">
+
+            <div class="irRegistro">
+                <img src="../assets/MixControleLogo.png" alt="Logo do site mix controle">
+                <h1>Ainda não tem uma conta?</h1>
+                <p>Cadastre-se agora mesmo!</p>
+                <a href="../pages/registro.html">
+                    <h4>Cadastre-se</h4>
+                </a>
+            </div>
+        </div>
+        <div class="conteudoLogin">
+            <h2>Acesse sua Conta</h2>
+            <p>Preencha seus dados</p>
+            <form action="../php/logging.php" method="post">
+
+                <img class="iconEmail" src="../assets/mdi_email-outline.png" alt="icone de email">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+
+                <img class="iconSenha" src="../assets/iconSenha.png" alt="icon de uma cadeado">
+                <input type="password" id="password" name="password" placeholder="Senha" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

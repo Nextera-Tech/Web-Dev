@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    background-color: #CDCDCD;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: grid;
+    height: 90%;
+    width: 90%;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "conteudoInformacao conteudoLogin";
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 2px 2px 20px black;
+}
+
+.conteudoInformacao {
+    grid-area: conteudoInformacao;
+    background-color: #008576;    
+    box-shadow: 1px 1px 3px #07b39f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 0px 0px 15px;
+
+}
+.irRegistro > img{
+    display: flex;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+.irRegistro{
+    width: 100%;
+    height: 100%;
+}
+
+.irRegistro > h1 {
+    margin: 0px 15px 0px 50px;
+    color: white;
+    font-size: 25pt;
+
+
+}
+.irRegistro > p {
+    color: white;
+    font-size: 11pt;
+    font-weight: 200;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.irRegistro > a {
+    color: white;
+    font-size: 15pt;
+    font-weight: 800;
+    border: 3px solid white;
+    height: 60px;
+    width: 200px;    
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    cursor: pointer;
+    text-decoration: none;
+}
+.irRegistro > a:hover {
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+}
+
+.conteudoLogin {
+    grid-area: conteudoLogin;
+    background-color: #FFFFFF;
+    margin: auto;
+    text-align: center;
+}
+.conteudoLogin > h2{
+    margin-bottom: 20px;
+    color: #008575;
+    font-weight: 900;
+    font-size: 30px;
+}
+.conteudoLogin > p{
+    margin-bottom: 30px;
+    color: #A19292;
+    font-weight: 400;
+}
+form{
+    margin: auto;
+    margin-top: 10px;
+    width: 500px;
+}
+form > input {
+    height: 60px;
+    width: 100%;
+    background-color: #9c9c9c73;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 17px;
+    padding-left: 60px;
+}
+form > input::placeholder {
+    font-size: 16px;
+    color: #9C9C9C;
+}
+form > button{
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #008575;
+    justify-content: center;
+    padding: 13px;
+    width: 250px;
+    border-radius: 50px;
+    font-size: 20px;
+    border-bottom: none;
+    font-weight: 800;
+    color: white;
+}
+form a{
+    text-decoration: none;
+    color: black;
+}
+button:hover{
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+}
+.iconEmail{
+    position: absolute;
+    left: 46.60%;
+    top: 47%;
+    transform: translateY(-50%);
+}
+.iconSenha{
+    position: absolute;
+    left: 47%;
+    top: 59.50%;
+    transform: translateY(-50%);
+}

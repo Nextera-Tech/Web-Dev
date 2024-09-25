@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/entrega-rapida.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/registro.css">
+    <link rel="stylesheet" href="../styles/mediaQueryRegistro.css">
+    <title>MixControle - Registro</title>
+</head>
+
+<body>
+    <main>
+        <div class="conteudoInformacao">
+            <div class="irLogin">
+                <img src="../assets/MixControleLogo.png" alt="Logo do site mix controle">
+                <h1>Bem-Vindo de Volta!</h1>
+                <p>Acesse sua conta</p>
+                <a href="../public/index.html">
+                    <h4>Entrar</h4>
+                </a>
+            </div>
+        </div>
+        <div class="registro">
+            <h2>Crie sua conta</h2>
+            <p>Preencha seus dados</p>
+            <form action="../php/request.php" method="POST">
+                <img class="iconLogin" src="../assets/Vector.png" alt="icon de uma boneco de login">
+                <input type="text" id="name" name="name" required placeholder="Nome ">
+                <img class="iconEmail" src="../assets/mdi_email-outline.png" alt="icone de email">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <img class="iconSenha" src="../assets/iconSenha.png" alt="icon de uma cadeado">
+                <input class="layerbluer" type="password" id="password" name="password" placeholder="Senha" required>
+                <button type="submit">CADASTRAR</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
